@@ -16,6 +16,7 @@
     <modules>
         <module>demo</module>
         <module>gof23</module>
+        <module>mongoDemo</module>
     </modules>
 
     <properties>
