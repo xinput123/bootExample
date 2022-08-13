@@ -17,6 +17,7 @@
         <module>demo</module>
         <module>gof23</module>
         <module>mongoDemo</module>
+        <module>multiple-datasource-demo</module>
     </modules>
 
     <properties>
