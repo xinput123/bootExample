@@ -13,12 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 import java.util.List;
 
-/**
- * TODO
- *
- * @author xinput
- * @since
- */
 @RestController
 public class PersonController {
 
