@@ -1,22 +1,22 @@
 spring:
   datasource:
     master:
-      jdbc-url: jdbc:mysql://18.163.55.196:3340/xx?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      jdbc-url: jdbc:mysql://18.163.55.196:3340/xx?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
       username: root
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
     slave1:
-      jdbc-url: jdbc:mysql://18.163.55.196:3341/xx?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      jdbc-url: jdbc:mysql://18.163.55.196:3341/xx?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
       username: xinput
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
     slave2:
-      jdbc-url: jdbc:mysql://18.163.55.196:3342/xx?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      jdbc-url: jdbc:mysql://18.163.55.196:3342/xx?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
       username: xinput
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
     slave3:
-      jdbc-url: jdbc:mysql://18.163.55.196:3343/xx?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      jdbc-url: jdbc:mysql://18.163.55.196:3343/xx?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
       username: xinput
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver

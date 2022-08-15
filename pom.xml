@@ -20,6 +20,7 @@
         <module>multiple-datasource-demo</module>
         <module>mybatis-xml</module>
         <module>mybatis-plus</module>
+        <module>mybatis-tk</module>
     </modules>
 
     <properties>
