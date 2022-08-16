@@ -2,12 +2,6 @@ package com.xinput.boot.consts;
 
 import lombok.Getter;
 
-/**
- * TODO
- *
- * @author xinput
- * @since
- */
 @Getter
 public enum ResultCode {
   SUCCESS(2000, "请求成功"),
