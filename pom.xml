@@ -24,6 +24,7 @@
         <module>rest-pi</module>
         <module>jwt</module>
         <module>logAop</module>
+        <module>interceptor</module>
     </modules>
 
     <properties>
