@@ -23,6 +23,7 @@
         <module>mybatis-tk</module>
         <module>rest-pi</module>
         <module>jwt</module>
+        <module>logAop</module>
     </modules>
 
     <properties>

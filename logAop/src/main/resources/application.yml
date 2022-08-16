@@ -1,0 +1,8 @@
+# 端口
+server:
+  port: 8080
+
+spring:
+  application:
+    # 应用名称
+    name: spring-boot-aop
