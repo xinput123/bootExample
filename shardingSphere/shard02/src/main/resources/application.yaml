@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  shardingsphere:
+    # 数据源
+    datasource:
+      names: ds0
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        drive: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/master?autoReconnect=true&connectionCollation=utf8mb4_general_ci&characterEncoding=utf-8
+        username: root
+        password: 123456
+    # 数据分表规则
+    sharding:
+      # 指定所需分的表
+      tables:
+        # 表名
+        log_detail:
+          actual-data-nodes: ds0.log_detail$->{0..9}
+          table-strategy:
+            inline:
+              # 指定主键,对应的数据库中的键
+              sharding-column: user_id
+              algorithm-expression: log_detail$->{Integer.valueOf(user_id) % 10}
+    props:
+      # 打印sql
+      sql:
+        show: true
+
+mybatis:
+  config-location: classpath:mybatis-config.xml

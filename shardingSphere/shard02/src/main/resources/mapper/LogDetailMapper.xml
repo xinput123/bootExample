@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinput.shard02.domain.repository.LogDetailMapper">
+  <resultMap id="BaseResultMap" type="com.xinput.shard02.domain.entity.LogDetail">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="action_desc" jdbcType="VARCHAR" property="actionDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, create_time, action_desc
+  </sql>
+
+    <select id="selectAll"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from log_detail order by id
+    </select>
+
+    <insert id="insert" parameterType="com.xinput.shard02.domain.entity.LogDetail">
+        insert into log_detail (user_id, create_time, action_desc)
+        values (
+            #{userId, jdbcType=VARCHAR},
+            #{createTime,jdbcType=TIMESTAMP},
+            #{actionDesc,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="insertForeach" parameterType="java.util.List" useGeneratedKeys="true">
+        insert into log_detail (user_id, create_time, action_desc) values
+        <foreach collection="details" item="item" index="index" separator=",">
+            (
+             #{item.userId, jdbcType=VARCHAR},
+             #{item.createTime, jdbcType=TIMESTAMP},
+             #{item.actionDesc, jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+</mapper>

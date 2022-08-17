@@ -14,6 +14,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>shard01</module>
+        <module>shard02</module>
+        <module>shard03</module>
     </modules>
 
     <properties>
