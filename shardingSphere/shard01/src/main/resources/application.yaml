@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  shardingsphere:
+    # 读写分离
+    masterslave:
+      load-balance-algorithm-type: round_robin
+      name: ms
+      master-data-source-name: master
+      slave-data-source-names: slave0
+    datasource:
+      names: master,slave0
+      # 数据源 主库 写
+      master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        drive: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/master?autoReconnect=true&connectionCollation=utf8mb4_general_ci&characterEncoding=utf-8
+        username: root
+        password: 123456
+      # 数据源 从库 读
+      slave0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        drive: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/slave?autoReconnect=true&connectionCollation=utf8mb4_general_ci&characterEncoding=utf-8
+        username: root
+        password: 123456
+    props:
+      # 打印sql
+      sql:
+        show: true
+
+mybatis:
+  config-location: classpath:mybatis-config.xml

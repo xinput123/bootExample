@@ -25,6 +25,7 @@
         <module>jwt</module>
         <module>logAop</module>
         <module>interceptor</module>
+        <module>shardingSphere</module>
     </modules>
 
     <properties>
