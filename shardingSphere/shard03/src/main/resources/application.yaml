@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+# 代替 mybatis.config 配置
+mybatis:
+  type-aliases-package: com.xinput.shard03.domain.entity
+  mapper-locations: classpath:mapper/*.xml
+
+spring:
+  shardingsphere:
+    datasource:
+      # 数据源
+      names: ds0,ds1
+      ds0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        drive: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/master?autoReconnect=true&connectionCollation=utf8mb4_general_ci&characterEncoding=utf-8
+        username: root
+        password: 123456
+      ds1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        drive: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/slave?autoReconnect=true&connectionCollation=utf8mb4_general_ci&characterEncoding=utf-8
+        username: root
+        password: 123456
+    sharding:
+      # 分库规则
+      default-database-strategy:
+        inline:
+          # 根据性别分库
+          sharding-column: sex
+          algorithm-expression: ds$->{sex%2}
+      # 分表规则
+      tables:
+        # 需要id分表的名称
+        member:
+          actual-data-nodes: ds$->{0..1}.member$->{0..1}
+          table-strategy:
+            inline:
+              sharding-column: age
+              algorithm-expression: member$->{age % 2}
